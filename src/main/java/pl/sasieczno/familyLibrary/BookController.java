@@ -26,7 +26,7 @@ public class BookController {
 
     @GetMapping("/books/search")
     public ResponseEntity<List<Book>> getByPhrase(@RequestParam(value = "phrase", required = false) String phrase) {
-        return null;
+        return new ResponseEntity<>(booksService.searchByPhraseInTitle(phrase), HttpStatus.OK);
     }
 
 

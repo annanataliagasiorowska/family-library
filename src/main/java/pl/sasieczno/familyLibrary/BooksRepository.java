@@ -7,5 +7,6 @@ import java.util.List;
 public interface BooksRepository extends JpaRepository<Book, Integer> {
     List<Book> findAllByOrderByAuthorLastNameAsc();
     List<Book> findAllByOrderByTitleAsc();
+    List<Book> findByTitleContainingIgnoreCase(String phrase);
 
 }

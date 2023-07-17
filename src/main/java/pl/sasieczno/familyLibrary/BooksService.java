@@ -25,5 +25,9 @@ public class BooksService {
         return sortedBooks;
     }
 
+    public List<Book> searchByPhraseInTitle(String phrase) {
+        return booksRepository.findByTitleContainingIgnoreCase(phrase);
+    }
+
 
 }
