@@ -10,16 +10,9 @@ import java.util.List;
 public class BooksService {
 
     private final BooksRepository booksRepository;
-    private final AuthorRepository authorRepository;
 
-    public BooksService(BooksRepository booksRepository, AuthorRepository authorRepository) {
+    public BooksService(BooksRepository booksRepository) {
         this.booksRepository = booksRepository;
-        this.authorRepository = authorRepository;
-    }
-
-    public List<Book> getAll() {
-        log.info("find all books: books={}", booksRepository.findAll());
-        return booksRepository.findAll();
     }
 
     public List<Book> getSorted(String sortCriteria) {
@@ -32,8 +25,5 @@ public class BooksService {
         return sortedBooks;
     }
 
-    private String getAuthorById(int authorId) {
-        Author author = authorRepository.findById(authorId).orElse(null);
-        return author != null ? author.getLastName() : "";
-    }
+
 }
