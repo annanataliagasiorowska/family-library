@@ -10,13 +10,30 @@ import java.util.List;
 public class BooksService {
 
     private final BooksRepository booksRepository;
+    private final AuthorRepository authorRepository;
 
-    public BooksService(BooksRepository booksRepository) {
+    public BooksService(BooksRepository booksRepository, AuthorRepository authorRepository) {
         this.booksRepository = booksRepository;
+        this.authorRepository = authorRepository;
     }
 
     public List<Book> getAll() {
         log.info("find all books: books={}", booksRepository.findAll());
         return booksRepository.findAll();
+    }
+
+    public List<Book> getSorted(String sortCriteria) {
+        List<Book> sortedBooks = switch(sortCriteria) {
+            case "author" -> booksRepository.findAllByOrderByAuthorLastNameAsc();
+            case "title" -> booksRepository.findAllByOrderByTitleAsc();
+
+            default -> throw new IllegalStateException("Unexpected value: " + sortCriteria);
+        };
+        return sortedBooks;
+    }
+
+    private String getAuthorById(int authorId) {
+        Author author = authorRepository.findById(authorId).orElse(null);
+        return author != null ? author.getLastName() : "";
     }
 }

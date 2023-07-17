@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 public class Book {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     @Column(nullable = true)
@@ -24,5 +25,9 @@ public class Book {
     @Enumerated(EnumType.STRING)
     private Position position;
     private Integer releaseYear;
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Author author;
+
 
 }

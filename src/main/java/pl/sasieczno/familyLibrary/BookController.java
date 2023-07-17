@@ -31,7 +31,8 @@ public class BookController {
 
     @GetMapping("/books/sorted")
     public ResponseEntity<List<Book>> getSorted(@RequestParam(value = "sort") String sortCriteria) {
-        return null;
+
+        return new ResponseEntity<>(booksService.getSorted(sortCriteria), HttpStatus.OK);
     }
 
 
