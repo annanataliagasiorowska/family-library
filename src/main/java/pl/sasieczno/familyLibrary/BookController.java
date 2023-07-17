@@ -20,8 +20,8 @@ public class BookController {
     }
 
     @GetMapping("/books")
-    public ResponseEntity<List<Book>> getAll() {
-        return new ResponseEntity<>(booksService.getAll(), HttpStatus.OK);
+    public ResponseEntity<List<Book>> getSorted(@RequestParam(value = "sort", defaultValue = "title") String sortCriteria) {
+        return new ResponseEntity<>(booksService.getSorted(sortCriteria), HttpStatus.OK);
     }
 
     @GetMapping("/books/search")
@@ -29,11 +29,7 @@ public class BookController {
         return null;
     }
 
-    @GetMapping("/books/sorted")
-    public ResponseEntity<List<Book>> getSorted(@RequestParam(value = "sort") String sortCriteria) {
 
-        return new ResponseEntity<>(booksService.getSorted(sortCriteria), HttpStatus.OK);
-    }
 
 
 
