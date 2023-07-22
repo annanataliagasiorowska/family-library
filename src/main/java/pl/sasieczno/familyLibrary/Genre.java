@@ -6,21 +6,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @Builder
 @Data
-@Table(name = "author")
+@Table(name = "genre")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Author {
+public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String firstName;
-    private String lastName;
-    private LocalDate birthDate;
-    private String origin;
-
+    private String name;
+    @OneToMany
+    private List<Book> books;
 }

@@ -2,10 +2,7 @@ package pl.sasieczno.familyLibrary;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,9 +10,9 @@ import java.util.List;
 @RequestMapping("/api")
 public class BookController {
 
-    private final BooksService booksService;
+    private final BookService booksService;
 
-    public BookController(BooksService booksService) {
+    public BookController(BookService booksService) {
         this.booksService = booksService;
     }
 
@@ -27,6 +24,11 @@ public class BookController {
     @GetMapping("/books/search")
     public ResponseEntity<List<Book>> getByPhrase(@RequestParam(value = "phrase", required = false) String phrase) {
         return new ResponseEntity<>(booksService.searchByPhraseInTitle(phrase), HttpStatus.OK);
+    }
+
+    @PostMapping("/books")
+    public void addBook(@RequestBody Book book) {
+        booksService.addBook(book);
     }
 
 

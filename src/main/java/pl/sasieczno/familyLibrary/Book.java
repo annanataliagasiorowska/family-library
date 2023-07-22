@@ -22,12 +22,20 @@ public class Book {
     private Double rating;
     @Column(nullable = true)
     private Double internalRating;
-    @Enumerated(EnumType.STRING)
-    private Position position;
     private Integer releaseYear;
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
+    @ManyToOne
+    @JoinColumn(name = "genre_id")
+    private Genre genre;
+    @ManyToOne
+    @JoinColumn(name = "place_id")
+    private Place place;
+    @ManyToOne
+    @JoinColumn(name = "library_id")
+    private Library library;
+
 
 
 }

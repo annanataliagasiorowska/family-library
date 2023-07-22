@@ -7,11 +7,11 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class BooksService {
+public class BookService {
 
-    private final BooksRepository booksRepository;
+    private final BookRepository booksRepository;
 
-    public BooksService(BooksRepository booksRepository) {
+    public BookService(BookRepository booksRepository) {
         this.booksRepository = booksRepository;
     }
 
@@ -30,4 +30,8 @@ public class BooksService {
     }
 
 
+    public void addBook(Book book) {
+
+        booksRepository.save(book);
+    }
 }

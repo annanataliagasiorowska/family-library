@@ -6,21 +6,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Builder
 @Data
-@Table(name = "author")
+@Table(name = "place")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Author {
+public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstName;
     private String lastName;
-    private LocalDate birthDate;
-    private String origin;
-
+    private String email;
+    private String password;
+    @OneToOne
+    private Library library;
 }
