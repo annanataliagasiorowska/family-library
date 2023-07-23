@@ -1,8 +1,11 @@
-package pl.sasieczno.familyLibrary;
+package pl.sasieczno.familyLibrary.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.sasieczno.familyLibrary.model.Book;
+import pl.sasieczno.familyLibrary.service.BookService;
+import pl.sasieczno.familyLibrary.BookSummaryDto;
 
 import java.util.List;
 
@@ -18,7 +21,7 @@ public class BookController {
     }
 
     @GetMapping("/books")
-    public ResponseEntity<List<Book>> getSorted(@RequestParam(value = "sort", defaultValue = "title") String sortCriteria) {
+    public ResponseEntity<List<BookSummaryDto>> getSorted(@RequestParam(value = "sort", defaultValue = "title") String sortCriteria) {
         return new ResponseEntity<>(booksService.getSorted(sortCriteria), HttpStatus.OK);
     }
 

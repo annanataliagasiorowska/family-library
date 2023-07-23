@@ -1,4 +1,4 @@
-package pl.sasieczno.familyLibrary;
+package pl.sasieczno.familyLibrary.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

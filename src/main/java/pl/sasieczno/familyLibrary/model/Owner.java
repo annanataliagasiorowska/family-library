@@ -1,4 +1,4 @@
-package pl.sasieczno.familyLibrary;
+package pl.sasieczno.familyLibrary.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -8,14 +8,18 @@ import lombok.NoArgsConstructor;
 
 @Builder
 @Data
-@Table(name = "library")
+@Table(name = "owner")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Library {
+public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
-
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
+    @ManyToOne
+    private Library library;
 }
