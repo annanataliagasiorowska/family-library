@@ -6,11 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Builder
 @Data
-@Table(name = "place")
+@Table(name = "library")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -19,9 +17,5 @@ public class Library {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany
-    private List<Place> placeList;
-    @OneToOne
-    private Owner owner;
 
 }

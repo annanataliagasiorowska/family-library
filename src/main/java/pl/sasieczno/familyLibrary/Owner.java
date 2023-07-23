@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 @Builder
 @Data
-@Table(name = "place")
+@Table(name = "owner")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -20,6 +20,6 @@ public class Owner {
     private String lastName;
     private String email;
     private String password;
-    @OneToOne
+    @ManyToOne
     private Library library;
 }
