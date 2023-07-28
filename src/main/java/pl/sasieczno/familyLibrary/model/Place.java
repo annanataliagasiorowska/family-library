@@ -8,14 +8,13 @@ import lombok.NoArgsConstructor;
 
 @Builder
 @Data
-@Table(name = "place")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 public class Place {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue
+    private Integer id;
     private String name;
     @ManyToOne
     @JoinColumn(name = "library_id")

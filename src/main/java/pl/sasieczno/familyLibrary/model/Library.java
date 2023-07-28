@@ -8,14 +8,13 @@ import lombok.NoArgsConstructor;
 
 @Builder
 @Data
-@Table(name = "library")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 public class Library {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue
+    private Integer id;
     private String name;
 
 }

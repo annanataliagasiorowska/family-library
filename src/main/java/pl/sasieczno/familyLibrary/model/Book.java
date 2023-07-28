@@ -8,15 +8,14 @@ import lombok.NoArgsConstructor;
 
 @Builder
 @Data
-@Table(name = "book")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue
+    private Integer id;
     private String title;
     @Column(nullable = true)
     private Double rating;

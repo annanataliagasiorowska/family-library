@@ -8,14 +8,13 @@ import lombok.NoArgsConstructor;
 
 @Builder
 @Data
-@Table(name = "genre")
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 public class Genre {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue
+    private Integer id;
     private String name;
 
 }
