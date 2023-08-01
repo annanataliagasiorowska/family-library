@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Entity
 public class Author {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String firstName;
     private String lastName;

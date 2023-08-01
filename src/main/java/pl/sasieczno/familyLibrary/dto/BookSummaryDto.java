@@ -1,4 +1,4 @@
-package pl.sasieczno.familyLibrary;
+package pl.sasieczno.familyLibrary.dto;
 
 import lombok.Getter;
 import lombok.Setter;

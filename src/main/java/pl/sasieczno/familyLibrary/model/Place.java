@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Place {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     @ManyToOne
